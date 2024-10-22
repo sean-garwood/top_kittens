@@ -1,7 +1,8 @@
 require "test_helper"
 
 class KittensControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get index" do
+    get kittens_url
+    assert_response :success
+  end
 end

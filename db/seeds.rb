@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+some_kitten = Kitten.create(name: "Fluffy", age: 1, cuteness: 10, softness: 10)
+some_kitten.save
+puts "Created a kitten named Fluffy"
+another_kitten = Kitten.create(name: "Whiskers", age: 2, cuteness: 9, softness: 9)
+another_kitten.save
+puts "Created a kitten named Whiskers"
