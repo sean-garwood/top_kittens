@@ -1,0 +1,12 @@
+<%# partial for creating/editing a kitten %>
+<%= form_with model: @kitten do |kitten_form| %>
+  <%= kitten_form.label :name %>
+  <%= kitten_form.text_field :name %>
+  <%= kitten_form.label :age %>
+  <%= kitten_form.number_field :age %>
+  <%= kitten_form.label :cuteness %>
+  <%= kitten_form.number_field :cuteness %>
+  <%= kitten_form.label :softness %>
+  <%= kitten_form.number_field :softness %>
+  <%= kitten_form.submit %>
+<% end %>
