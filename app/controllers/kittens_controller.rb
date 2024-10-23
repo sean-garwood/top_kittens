@@ -18,8 +18,10 @@ class KittensController < ApplicationController
   def create
     @kitten = Kitten.new(kitten_params)
     if @kitten.save
+      flash[:success] = "Kitten was successfully created."
       redirect_to kitten_path(@kitten)
     else
+      flash[:error] = @kitten.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,7 +32,7 @@ class KittensController < ApplicationController
       flash[:success] = "Kitten was successfully updated."
       redirect_to kitten_path(@kitten)
     else
-      flash[:error] = "Something went wrong."
+      flash[:error] = @kitten.errors.full_messages.to_sentence
       render :edit, status: :unprocessable_entity
     end
   end
@@ -41,7 +43,7 @@ class KittensController < ApplicationController
       flash[:success] = "Kitten was successfully deleted."
       redirect_to kittens_path
     else
-      flash[:error] = "Something went wrong."
+      flash[:error] = @kitten.errors.full_messages.to_sentence
       redirect_to kitten_path(@kitten)
     end
   end
