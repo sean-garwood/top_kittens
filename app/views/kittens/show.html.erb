@@ -1,6 +1,7 @@
 <h1>Show <%= @kitten.name %></h1>
 <p>here is <%= @kitten.name %></p>
-<%# show attributes of the kitten %>
 <p>Age: <%= @kitten.age %></p>
 <p>Cuteness: <%= @kitten.cuteness %></p>
 <p>Softness: <%= @kitten.softness %></p>
+<%= link_to "Destroy this kitten", @kitten, data: { turbo_method: :delete,
+turbo_confirm: "Are you sure?" } %>

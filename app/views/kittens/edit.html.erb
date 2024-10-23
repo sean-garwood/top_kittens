@@ -1,2 +1,4 @@
 <h1>Edit <%= @kitten.name %></h1>
-<%= render partial: 'form', local: {kitten: @kitten} %>
+<%= render partial: 'form', locals: {kitten: @kitten} %>
+<%= link_to "Destroy this kitten", @kitten, data: { turbo_method: :delete,
+turbo_confirm: "Are you sure?" } %>

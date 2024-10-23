@@ -27,9 +27,22 @@ class KittensController < ApplicationController
   def update
     @kitten = Kitten.find(params[:id])
     if @kitten.update(kitten_params)
+      flash[:success] = "Kitten was successfully updated."
       redirect_to kitten_path(@kitten)
     else
+      flash[:error] = "Something went wrong."
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @kitten = Kitten.find(params[:id])
+    if @kitten.destroy
+      flash[:success] = "Kitten was successfully deleted."
+      redirect_to kittens_path
+    else
+      flash[:error] = "Something went wrong."
+      redirect_to kitten_path(@kitten)
     end
   end
 
